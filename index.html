@@ -8,7 +8,7 @@
             font-family: Arial, sans-serif; 
             text-align: center; 
             margin: 0; 
-            padding-bottom: 0px; /* Thêm padding để tránh nội dung bị che bởi nút cố định */
+            padding-bottom: 150px; /* Thêm padding để tránh nội dung bị che bởi nút cố định */
             background-color: #f7fbf3;
         }
         #gameContainer {
@@ -40,7 +40,7 @@
             align-items: center; 
             justify-content: left; 
             padding-left: 20px;
-            font-size: clamp(12px, 2vw, 15px); 
+            font-size: clamp(16px, 2vw, 20px); 
             font-weight: bold;
         }
         #instructionBox { 
@@ -55,7 +55,7 @@
             align-items: center; 
             justify-content: left; 
             padding-left: 20px;
-            font-size: clamp(12px, 2vw, 15px); 
+            font-size: clamp(16px, 2vw, 20px); 
             font-weight: bold;
         }
         #controls { 
@@ -69,6 +69,7 @@
             padding: 10px 0; /* Khoảng đệm */
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
             z-index: 1000; /* Đảm bảo nằm trên các phần tử khác */
+			font-size: 28px; 
         }
         #controls div {
             margin: 5px 0; /* Giảm khoảng cách giữa các hàng */
@@ -187,185 +188,7 @@
 		
 		--------------------------------------------------------------------------------
 	@media (max-width: 200px) {
-                body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            margin: 0; 
-            padding-bottom: 0px; /* Thêm padding để tránh nội dung bị che bởi nút cố định */
-            background-color: #f7fbf3;
-        }
-        #gameContainer {
-            display: block;
-        }
-        #infoBox { 
-            width: 100%; 
-            max-width: 700px;
-            min-height: 100px; 
-            margin: 0 auto; 
-            border: 1px solid #ccc; 
-            background: #68838B; 
-            color: #D2B48C; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: clamp(40px, 5vw, 60px);
-            font-weight: bold;
-        }
-        #contactBox { 
-            width: 100%; 
-            max-width: 700px;
-            min-height: 25px; 
-            margin: 1px auto; 
-            border: 1px solid #ccc; 
-            background: #68838B; 
-            color: #D2B48C; 
-            display: flex; 
-            align-items: center; 
-            justify-content: left; 
-            padding-left: 20px;
-            font-size: clamp(12px, 2vw, 15px); 
-            font-weight: bold;
-        }
-        #instructionBox { 
-            width: 100%; 
-            max-width: 700px;
-            min-height: 25px; 
-            margin: 0px auto; 
-            border: 1px solid #ccc; 
-            background: #68838B; 
-            color: #D2B48C; 
-            display: flex; 
-            align-items: center; 
-            justify-content: left; 
-            padding-left: 20px;
-            font-size: clamp(12px, 2vw, 15px); 
-            font-weight: bold;
-        }
-        #controls { 
-            position: fixed; /* Cố định ở cuối màn hình */
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 800px; /* Giới hạn chiều rộng tối đa */
-            background: #68838B; /* Nền trắng để nổi bật */
-            padding: 10px 0; /* Khoảng đệm */
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
-            z-index: 1000; /* Đảm bảo nằm trên các phần tử khác */
-        }
-        #controls div {
-            margin: 5px 0; /* Giảm khoảng cách giữa các hàng */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        button { 
-            padding: 8px 8px; 
-            margin: 0 5px; 
-            cursor: pointer; 
-            border: 3px solid #5d757d; 
-            background: #0f1314; /*344145*/
-            color: #fffbef; 
-            font-size: 50px; 
-            border-radius: 5px; 
-            /*font-weight: bold;*/
-        }
-        #sentenceNumber { 
-            width: 50px; 
-            padding: 10px; 
-            text-align: center; 
-            border: 3px solid #68838B; 
-            background: #FFAD5B; 
-            color: #000; 
-            border-radius: 10px; 
-            font-size: 16px; 
-            -moz-appearance: textfield; 
-        }
-        #sentenceNumber::-webkit-inner-spin-button, 
-        #sentenceNumber::-webkit-outer-spin-button { 
-            -webkit-appearance: none; 
-            margin: 0; 
-        }
-        #sentenceNumber:disabled { 
-            background: #eee; 
-        }
-        .disabled { 
-            cursor: not-allowed; 
-            pointer-events: none; 
-        }
-        .active-mode { 
-            border: 4px solid orange; 
-        }
-        #indicator { 
-            max-width: 700px; 
-            min-height: 50px; 
-            margin: 10px auto; 
-            border: 5px solid #734A2E; 
-            background: #ffffe0; 
-            border-radius: 20px; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-        }
-        #optionsContainer {
-            width: 70%;
-            margin: 10px auto;
-        }
-        .optionBtn {
-            width: 100%; 
-            max-width: 700px;
-            padding: 10px;
-            margin: 5px 0;
-            border: 3px solid #734A2E;
-            background: #E6EDD9;
-            color: #000;
-            font-size: 18px;
-            text-align: left;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .optionBtn:hover {
-            background: #D2E4C4;
-        }
-        .correct {
-            background: #B7D7AA !important;
-        }
-        .wrong {
-            background: #CE6D5E !important;
-        }
-        #score { 
-            display: none; 
-            margin-left: 10px; 
-            color: #FF6820; 
-            font-size: 30px; 
-        }
-        #wrongSentences { 
-            display: none; 
-            width: 70%; 
-            margin: 10px auto; 
-            padding: 10px; 
-            border: 2px solid #CE6D5E; 
-            background: #FFF0F0; 
-            color: #CE6D5E; 
-            font-size: 20px; 
-            text-align: left; 
-            border-radius: 5px; 
-        }
-        #results { 
-            display: none; 
-            width: 90%;
-			max-width: 700px;		
-            margin: 10px auto; 
-            padding: 10px; 
-            border: 2px solid #734A2E; 
-            background: #fffbef; 
-            color: #000; 
-            font-size: 16px; 
-            text-align: left; 
-            border-radius: 5px; 
-            white-space: pre-line;
-        }        
+            
         }
     </style>
 </head>
