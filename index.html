@@ -2,17 +2,19 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Thêm viewport để tối ưu hóa di động -->
     <title>越南语听力练习</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
             text-align: center; 
             margin: 0; 
-            padding-bottom: 0px; /* Thêm padding để tránh nội dung bị che bởi nút cố định */
+            padding-bottom: 150px; /* Mặc định cho màn hình lớn */
             background-color: #f7fbf3;
         }
         #gameContainer {
             display: block;
+            min-height: calc(100vh - 150px); /* Đảm bảo nội dung chiếm đủ chiều cao màn hình */
         }
         #infoBox { 
             width: 100%; 
@@ -65,14 +67,13 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 800px; /* Giới hạn chiều rộng tối đa */
-            background: #68838B; /* Nền trắng để nổi bật */
-            padding: 10px 0; /* Khoảng đệm */
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
-            z-index: 1000; /* Đảm bảo nằm trên các phần tử khác */
-			font-size: 28px; 
+            background: #68838B; 
+            padding: 10px 0; 
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); 
+            z-index: 1000; 
         }
         #controls div {
-            margin: 5px 0; /* Giảm khoảng cách giữa các hàng */
+            margin: 5px 0; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -82,11 +83,10 @@
             margin: 0 5px; 
             cursor: pointer; 
             border: 3px solid #5d757d; 
-            background: #0f1314; /*344145*/
+            background: #0f1314; 
             color: #fffbef; 
             font-size: 28px; 
             border-radius: 5px; 
-            /*font-weight: bold;*/
         }
         #sentenceNumber { 
             width: 50px; 
@@ -128,7 +128,7 @@
         }
         #optionsContainer {
             width: 100%;
-			max-width: 700px;
+            max-width: 700px;
             margin: 10px auto;
         }
         .optionBtn {
@@ -155,13 +155,17 @@
         }
         #score { 
             display: none; 
-            margin-left: 10px; 
+            width: 100%;
+            max-width: 700px;
+            margin: 10px auto; 
             color: #FF6820; 
             font-size: 30px; 
+            text-align: center;
         }
         #wrongSentences { 
             display: none; 
-            width: 70%; 
+            width: 100%; 
+            max-width: 700px; 
             margin: 10px auto; 
             padding: 10px; 
             border: 2px solid #CE6D5E; 
@@ -173,8 +177,8 @@
         }
         #results { 
             display: none; 
-            width: 90%;
-			max-width: 700px;		
+            width: 100%;
+            max-width: 700px;        
             margin: 10px auto; 
             padding: 10px; 
             border: 2px solid #734A2E; 
@@ -185,10 +189,40 @@
             border-radius: 5px; 
             white-space: pre-line;
         }
-		
-		--------------------------------------------------------------------------------
-	@media (max-width: 200px) {
-            
+
+        /* Media query cho thiết bị di động */
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 100px; /* Giảm padding-bottom cho điện thoại */
+            }
+            #controls {
+                padding: 5px 0; /* Giảm padding */
+            }
+            button {
+                padding: 6px 6px; /* Giảm kích thước nút */
+                font-size: 20px; /* Giảm kích thước chữ */
+            }
+            #sentenceNumber {
+                width: 40px; /* Giảm chiều rộng */
+                padding: 8px; /* Giảm padding */
+                font-size: 14px; /* Giảm kích thước chữ */
+            }
+            .optionBtn {
+                font-size: 24px; /* Giảm kích thước chữ cho đáp án */
+                padding: 8px; /* Giảm padding */
+            }
+            #infoBox {
+                font-size: clamp(30px, 4vw, 40px); /* Giảm kích thước chữ */
+            }
+            #contactBox, #instructionBox {
+                font-size: clamp(14px, 2vw, 16px); /* Giảm kích thước chữ */
+            }
+            #indicator {
+                min-height: 40px; /* Giảm chiều cao tối thiểu */
+            }
+            #results, #wrongSentences, #score {
+                font-size: 24px; /* Giảm kích thước chữ */
+            }
         }
     </style>
 </head>
@@ -200,24 +234,24 @@
         <div id="indicator"></div>
         <div id="optionsContainer"></div>
         <div id="results"></div>
-        <div id="controls">
-            <div>
-                <button id="freeModeBtn" class="active-mode">自由模式</button>
-                <button id="testModeBtn">作业模式</button>
-            </div>
-            <div>
-                <button id="autoContinueBtn">自动继续</button>
-                <button id="showHideBtn">显示-隐藏</button>
-            </div>
-            <div>
-                <button id="prevBtn">◀</button>
-                <input type="text" id="sentenceNumber" inputmode="numeric" pattern="[0-9]*">
-                <button id="nextBtn">▶</button>
-                <button id="replayBtn">再听一遍</button>
-            </div>
-        </div>
         <div id="score">0/0</div>
         <div id="wrongSentences"></div>
+    </div>
+    <div id="controls">
+        <div>
+            <button id="freeModeBtn" class="active-mode">自由模式</button>
+            <button id="testModeBtn">作业模式</button>
+        </div>
+        <div>
+            <button id="autoContinueBtn">自动继续</button>
+            <button id="showHideBtn">显示-隐藏</button>
+        </div>
+        <div>
+            <button id="prevBtn">◀</button>
+            <input type="text" id="sentenceNumber" inputmode="numeric" pattern="[0-9]*">
+            <button id="nextBtn">▶</button>
+            <button id="replayBtn">再听一遍</button>
+        </div>
     </div>
     <audio id="mainAudio" src="audio.mp3"></audio>
     <audio id="correctAudio" src="Dung.mp3"></audio>
@@ -420,7 +454,7 @@
 
         function updateScore() {
             scoreDisplay.textContent = `${correctCount}/${sentences.length}`;
-            scoreDisplay.style.display = 'inline';
+            scoreDisplay.style.display = 'block'; // Hiển thị score trong Test Mode
         }
 
         function showResults() {
@@ -471,7 +505,7 @@
             showHideBtn.classList.add('disabled');
             showHideBtn.classList.remove('active-mode');
             showAnswer = false;
-            scoreDisplay.style.display = 'inline';
+            scoreDisplay.style.display = 'block';
             currentIndex = 0;
             correctCount = 0;
             correctSentences.clear();
