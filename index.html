@@ -10,7 +10,7 @@
             text-align: center; 
             margin: 0; 
             padding-bottom: 300px; /* Mặc định cho màn hình lớn */
-            background-color: #f7fbf3;
+            background-color: #ffffff; /*f7fbf3  3f4040*/
         }
         #gameContainer {
             display: block;
@@ -21,9 +21,9 @@
             max-width: 700px;
             min-height: 100px; 
             margin: 0 auto; 
-            border: 1px solid #ccc; 
-            background: #68838B; 
-            color: #D2B48C; 
+            border: 10px solid #4990cc; /*4990cc 56a1d1*/
+            background: #f9f9f9; /*ecf2e4 fefefc*/
+            color: #4990cc; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -35,9 +35,9 @@
             max-width: 700px;
             min-height: 25px; 
             margin: 0px auto; 
-            border: 1px solid #ccc; 
-            background: #68838B; 
-            color: #D2B48C; 
+            border: 3px solid #4990cc; 
+            background: #fefefc; 
+            color: #4990cc; 
             display: flex; 
             align-items: center; 
             justify-content: left; 
@@ -50,9 +50,9 @@
             max-width: 700px;
             min-height: 25px; 
             margin: 0px auto; 
-            border: 1px solid #ccc; 
-            background: #68838B; 
-            color: #D2B48C; 
+            border: 3px solid #4990cc; 
+            background: #fefefc; 
+            color: #4990cc; 
             display: flex; 
             align-items: center; 
             justify-content: left; 
@@ -65,9 +65,10 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100%;
+            width: 95%;
             max-width: 800px; /* Giới hạn chiều rộng tối đa */
-            background: #68838B; 
+            background: #fefefc;
+			border: 10px solid #4990cc;			
             padding: 10px 0; 
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); 
             z-index: 1000; 
@@ -83,7 +84,7 @@
             margin: 0 5px; 
             cursor: pointer; 
             border: 3px solid #5d757d; 
-            background: #0f1314; 
+            background: #0f1314; /*192332*/
             color: #fffbef; 
             font-size: 28px; 
             border-radius: 5px; 
@@ -116,11 +117,11 @@
         }
         #indicator { 
             width: 95%;
-			max-width: 700px; 
+                        max-width: 700px; 
             min-height: 50px; 
             margin: 10px auto; 
-			padding: 5px;
-            border: 3px solid #734A2E; 
+                        padding: 5px;
+            border: 5px solid orange; 
             background: #ffffe0; 
             border-radius: 10px; 
             display: flex; 
@@ -138,7 +139,7 @@
             max-width: 700px;
             padding: 10px;
             margin: 5px 0;
-            border: 1px solid #734A2E;
+            border: 2px solid #b38728;
             background: #ffffff; /*E6EDD9*/
             color: #000;
             font-size: 30px;
@@ -224,7 +225,7 @@
             }
             #results, #wrongSentences, #score {
                 font-size: 24px; /* Giảm kích thước chữ */
-				width: 95%;
+                                width: 95%;
             }
         }
     </style>
@@ -988,7 +989,7 @@ const sentences = [
             indicator.style.background = '#ffffe0';
             if (isFreeMode && showAnswer) {
                 indicator.innerHTML = `
-                    <div style="font-size: 20px; font-weight: normal; color: #38761d;">${sentences[currentIndex].translation}</div>
+                    <div style="font-size: 18px; font-weight: bold; color: #38761d;">${sentences[currentIndex].translation}</div>
                 `;
             } else {
                 indicator.innerHTML = '';
@@ -1056,12 +1057,18 @@ const sentences = [
                 if (btn.textContent === selectedAnswer) {
                     if (selectedAnswer === correctAnswer) {
                         indicator.style.background = '#B7D7AA';
+						indicator.innerHTML = `
+                    <div style="font-size: 18px; font-weight: bold; color: #000000;">${sentences[currentIndex].translation}</div>
+                `;
                         btn.classList.add('correct');
                         correctAudio.play().catch(error => {
                             console.error('Correct audio playback failed:', error);
                         });
                     } else {
                         indicator.style.background = '#CE6D5E';
+						indicator.innerHTML = `
+                    <div style="font-size: 18px; font-weight: bold; color: #000000;">${sentences[currentIndex].translation}</div>
+                `;
                         btn.classList.add('wrong');
                         wrongAudio.play().catch(error => {
                             console.error('Wrong audio playback failed:', error);
