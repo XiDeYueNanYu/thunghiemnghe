@@ -2,26 +2,28 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Thêm viewport để tối ưu hóa di động -->
     <title>越南语听力练习</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
             text-align: center; 
             margin: 0; 
-            padding-bottom: 160px; /* Thêm padding để tránh nội dung bị che bởi nút cố định */
-            background-color: #f7fbf3;
+            padding-bottom: 300px; /* Mặc định cho màn hình lớn */
+            background-color: #f7fbf3; /*f7fbf3  3f4040*/
         }
         #gameContainer {
             display: block;
+            min-height: calc(100vh - 150px); /* Đảm bảo nội dung chiếm đủ chiều cao màn hình */
         }
         #infoBox { 
-            width: 100%; 
+            width: 95%; 
             max-width: 700px;
             min-height: 100px; 
             margin: 0 auto; 
-            border: 1px solid #ccc; 
-            background: #68838B; 
-            color: #D2B48C; 
+            border: 2px solid #91b66f; /*041b31 1f4263*/
+            background: #85ae5f; /*ecf2e4 fefefc*/
+            color: #ffffff; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -29,33 +31,33 @@
             font-weight: bold;
         }
         #contactBox { 
-            width: 100%; 
-            max-width: 700px;
-            min-height: 25px; 
-            margin: 1px auto; 
-            border: 1px solid #ccc; 
-            background: #68838B; 
-            color: #D2B48C; 
-            display: flex; 
-            align-items: center; 
-            justify-content: left; 
-            padding-left: 20px;
-            font-size: clamp(12px, 2vw, 15px); 
-            font-weight: bold;
-        }
-        #instructionBox { 
-            width: 100%; 
+            width: 90%; 
             max-width: 700px;
             min-height: 25px; 
             margin: 0px auto; 
-            border: 1px solid #ccc; 
-            background: #68838B; 
-            color: #D2B48C; 
+            border: 2px solid #91b66f; 
+            background: #85ae5f; 
+            color: #f1c232; 
             display: flex; 
             align-items: center; 
             justify-content: left; 
             padding-left: 20px;
-            font-size: clamp(12px, 2vw, 15px); 
+            font-size: clamp(16px, 2vw, 20px); 
+            font-weight: bold;
+        }
+        #instructionBox { 
+            width: 90%; 
+            max-width: 700px;
+            min-height: 25px; 
+            margin: 0px auto; 
+            border: 2px solid #91b66f; 
+            background: #85ae5f; 
+            color: #f7e19c; 
+            display: flex; 
+            align-items: center; 
+            justify-content: left; 
+            padding-left: 20px;
+            font-size: clamp(16px, 2vw, 20px); 
             font-weight: bold;
         }
         #controls { 
@@ -63,15 +65,16 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100%;
+            width: 95%;
             max-width: 800px; /* Giới hạn chiều rộng tối đa */
-            background: #68838B; /* Nền trắng để nổi bật */
-            padding: 10px 0; /* Khoảng đệm */
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
-            z-index: 1000; /* Đảm bảo nằm trên các phần tử khác */
+            background: #f7fbf3;
+			border: 3px solid #f7fbf3;			
+            padding: 10px 0; 
+           /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); */
+            z-index: 1000; 
         }
         #controls div {
-            margin: 5px 0; /* Giảm khoảng cách giữa các hàng */
+            margin: 5px 0; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -80,19 +83,19 @@
             padding: 8px 8px; 
             margin: 0 5px; 
             cursor: pointer; 
-            border: 3px solid #5d757d; 
-            background: #0f1314; /*344145*/
+            border: 2px solid #85ae5f; 
+            background: #85ae5f; /*192332*/
+			box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
             color: #fffbef; 
-            font-size: 16px; 
+            font-size: 28px; 
             border-radius: 5px; 
-            /*font-weight: bold;*/
         }
         #sentenceNumber { 
             width: 50px; 
             padding: 10px; 
             text-align: center; 
-            border: 3px solid #68838B; 
-            background: #FFAD5B; 
+            border: 3px solid #85ae5f; /*041b31 68838B*/
+            background: #f1cc76; 
             color: #000; 
             border-radius: 10px; 
             font-size: 16px; 
@@ -111,33 +114,37 @@
             pointer-events: none; 
         }
         .active-mode { 
-            border: 4px solid orange; 
+            border: 2px solid #fed16a; 
         }
         #indicator { 
-            max-width: 700px; 
+            width: 95%;
+                        max-width: 700px; 
             min-height: 50px; 
             margin: 10px auto; 
-            border: 5px solid #734A2E; 
+                        padding: 5px;
+            border: 3px solid #fed16a; 
             background: #ffffe0; 
-            border-radius: 20px; 
+            border-radius: 10px; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
         }
         #optionsContainer {
-            width: 70%;
+            width: 100%;
+            max-width: 700px;
             margin: 10px auto;
         }
         .optionBtn {
-            width: 100%; 
+            width: 95%; 
             max-width: 700px;
             padding: 10px;
             margin: 5px 0;
-            border: 3px solid #734A2E;
-            background: #E6EDD9;
-            color: #000;
-            font-size: 18px;
+            border: 2px solid #ffffff;
+            background: #ffffff; /*E6EDD9*/
+            color: #000000;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 30px;
             text-align: left;
             cursor: pointer;
             border-radius: 5px;
@@ -153,35 +160,75 @@
         }
         #score { 
             display: none; 
-            margin-left: 10px; 
+            width: 100%;
+            max-width: 700px;
+            margin: 10px auto; 
             color: #FF6820; 
             font-size: 30px; 
+            text-align: center;
         }
         #wrongSentences { 
             display: none; 
-            width: 70%; 
+            width: 95%; 
+            max-width: 700px; 
             margin: 10px auto; 
             padding: 10px; 
             border: 2px solid #CE6D5E; 
             background: #FFF0F0; 
             color: #CE6D5E; 
-            font-size: 20px; 
+            font-size: 30px; 
             text-align: left; 
             border-radius: 5px; 
         }
         #results { 
             display: none; 
-            width: 90%;
-			max-width: 700px;		
+            width: 95%;
+            max-width: 700px;        
             margin: 10px auto; 
             padding: 10px; 
             border: 2px solid #734A2E; 
             background: #fffbef; 
             color: #000; 
-            font-size: 16px; 
+            font-size: 30px; 
             text-align: left; 
             border-radius: 5px; 
             white-space: pre-line;
+        }
+
+        /* Media query cho thiết bị di động */
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 200px; /* Giảm padding-bottom cho điện thoại */
+            }
+            #controls {
+                padding: 5px 0; /* Giảm padding */
+            }
+            button {
+                padding: 6px 6px; /* Giảm kích thước nút */
+                font-size: 20px; /* Giảm kích thước chữ */
+            }
+            #sentenceNumber {
+                width: 40px; /* Giảm chiều rộng */
+                padding: 8px; /* Giảm padding */
+                font-size: 14px; /* Giảm kích thước chữ */
+            }
+            .optionBtn {
+                font-size: 20px; /* Giảm kích thước chữ cho đáp án */
+                padding: 8px; /* Giảm padding */
+            }
+            #infoBox {
+                font-size: clamp(30px, 4vw, 40px); /* Giảm kích thước chữ */
+            }
+            #contactBox, #instructionBox {
+                font-size: clamp(14px, 2vw, 16px); /* Giảm kích thước chữ */
+            }
+            #indicator {
+                min-height: 40px; /* Giảm chiều cao tối thiểu */
+            }
+            #results, #wrongSentences, #score {
+                font-size: 24px; /* Giảm kích thước chữ */
+                                width: 95%;
+            }
         }
     </style>
 </head>
@@ -193,24 +240,24 @@
         <div id="indicator"></div>
         <div id="optionsContainer"></div>
         <div id="results"></div>
-        <div id="controls">
-            <div>
-                <button id="freeModeBtn" class="active-mode">自由模式</button>
-                <button id="testModeBtn">作业模式</button>
-            </div>
-            <div>
-                <button id="autoContinueBtn">自动继续</button>
-                <button id="showHideBtn">显示-隐藏</button>
-            </div>
-            <div>
-                <button id="prevBtn">◀</button>
-                <input type="text" id="sentenceNumber" inputmode="numeric" pattern="[0-9]*">
-                <button id="nextBtn">▶</button>
-                <button id="replayBtn">再听一遍</button>
-            </div>
-        </div>
         <div id="score">0/0</div>
         <div id="wrongSentences"></div>
+    </div>
+    <div id="controls">
+        <div>
+            <button id="freeModeBtn" class="active-mode">自由模式</button>
+            <button id="testModeBtn">作业模式</button>
+        </div>
+        <div>
+            <button id="autoContinueBtn">自动继续</button>
+            <button id="showHideBtn">显示-隐藏</button>
+        </div>
+        <div>
+            <button id="prevBtn">◀</button>
+            <input type="text" id="sentenceNumber" inputmode="numeric" pattern="[0-9]*">
+            <button id="nextBtn">▶</button>
+            <button id="replayBtn">再听一遍</button>
+        </div>
     </div>
     <audio id="mainAudio" src="audio.mp3"></audio>
     <audio id="correctAudio" src="Dung.mp3"></audio>
@@ -236,34 +283,385 @@
 
         const buttons = [prevBtn, nextBtn, replayBtn, freeModeBtn, testModeBtn, autoContinueBtn, showHideBtn];
 
-        const sentences = [
-            {
-                audioFile: "audio.mp3",
-                start: 0.975238,
-                end: 2.229116,
-                correctAnswer: "Chúng tôi đi Trung Quốc bằng ô tô qua cửa khẩu Lạng Sơn.",
-                translation: "我们坐汽车经过谅山口岸去中国。",
-                options: [
-                    "Chúng tôi đi Trung Quốc bằng ô tô qua cửa khẩu Lạng Sơn.",
-                    "Chúng tôi đi Trung Quốc bằng ô tô qua cửa khâu Lạng Sơn.",
-                    "Chúng tôi đi Trung Quốc băng ô tô qua cửa khẩu Lạng Sơn.",
-                    "Chúng tôi đi Trung Quốc bằng ô tô qua cứa khẩu Lạng Sơn."
-                ]
-            },
-            {
-                audioFile: "audio.mp3",
-                start: 4.156372,
-                end: 5.37542,
-                correctAnswer: "Chị mua rượu này ở đâu? Ở siêu thị hay chợ?",
-                translation: "你在哪里买的这瓶酒？在超市还是在市场？",
-                options: [
-                    "Chị mua rượu này ở đâu? Ở siêu thị hay chợ?",
-                    "Chị mua rượu này ở đâu? Ở siêu thụ hay chợ?",
-                    "Chị mua rượu này ở đâu? Ở tiêu thị hay chợ?",
-                    "Chị múa rượu này ở đâu? Ở siêu thị hay chợ?"
-                ]
-            }
-        ];
+const sentences = [
+    {
+        "audioFile": "audio.mp3",
+        "start": 0.302292,
+        "end": 1.142292,
+        "correctAnswer": "Chào ông.",
+        "translation": "您好，先生。",
+        "options": [
+            "Trào ống.",
+            "Chào ông.",
+            "Trào ung.",
+            "Chào ung."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 1.652292,
+        "end": 2.592292,
+        "correctAnswer": "Chào bà.",
+        "translation": "您好，女士。",
+        "options": [
+            "Chào bá.",
+            "Trào bã.",
+            "Trào bà.",
+            "Chào bà."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 3.072292,
+        "end": 3.812292,
+        "correctAnswer": "Chào.",
+        "translation": "你好。",
+        "options": [
+            "Cháo.",
+            "Chèo.",
+            "Trào.",
+            "Chào."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 4.292292,
+        "end": 4.962292,
+        "correctAnswer": "ông.",
+        "translation": "先生。",
+        "options": [
+            "ông.",
+            "ổng.",
+            "ống.",
+            "ung."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 5.692292,
+        "end": 6.422292,
+        "correctAnswer": "bà.",
+        "translation": "女士。",
+        "options": [
+            "bá.",
+            "pà.",
+            "pả.",
+            "bà."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 7.012292,
+        "end": 7.902292,
+        "correctAnswer": "Chào anh.",
+        "translation": "你好，哥哥/先生。",
+        "options": [
+            "Chào ảnh.",
+            "Chào anh.",
+            "Trào ăn.",
+            "Chào ăn."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 8.442292,
+        "end": 9.402292,
+        "correctAnswer": "Chào các anh.",
+        "translation": "你好，各位哥哥/先生。",
+        "options": [
+            "Chào cát anh.",
+            "Chào các ênh.",
+            "Trào các anh.",
+            "Chào các anh."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 10.272292,
+        "end": 10.902292,
+        "correctAnswer": "các.",
+        "translation": "各位。",
+        "options": [
+            "cát.",
+            "cạc.",
+            "cáp.",
+            "các."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 11.622292,
+        "end": 12.512292,
+        "correctAnswer": "Chào chị.",
+        "translation": "你好，姐姐/女士。",
+        "options": [
+            "Chào chỉ.",
+            "Trào trị.",
+            "Chào trị.",
+            "Chào chị."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 13.032292,
+        "end": 14.022292,
+        "correctAnswer": "Chào các chị.",
+        "translation": "你好，各位姐姐/女士。",
+        "options": [
+            "Trào các chị.",
+            "Chào các chỉ.",
+            "Chào cát chị.",
+            "Chào các chị."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 14.672292,
+        "end": 15.602292,
+        "correctAnswer": "Chào thầy.",
+        "translation": "你好，男老师。",
+        "options": [
+            "Chào thay.",
+            "Trào thày.",
+            "Chào thày.",
+            "Chào thầy."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 15.952292,
+        "end": 16.912292,
+        "correctAnswer": "Chào cô.",
+        "translation": "你好，女老师。",
+        "options": [
+            "Chào co.",
+            "Trào cô.",
+            "Chào cổ.",
+            "Chào cô."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 17.542292,
+        "end": 19.122292,
+        "correctAnswer": "Chào các thầy các cô.",
+        "translation": "各位老师好。",
+        "options": [
+            "Chào các thầy các cổ.",
+            "Chào cát thầy các cô.",
+            "Trào các thầy các cô.",
+            "Chào các thầy các cô."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 19.732292,
+        "end": 21.012292,
+        "correctAnswer": "Chào các thầy cô.",
+        "translation": "各位老师好（男/女）。",
+        "options": [
+            "Chào cát thầy cô.",
+            "Trào các thầy cô.",
+            "Chào các thầy cổ.",
+            "Chào các thầy cô."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 21.492292,
+        "end": 22.372292,
+        "correctAnswer": "Chào bạn.",
+        "translation": "你好，朋友。",
+        "options": [
+            "Trào bạn.",
+            "Chào bạc.",
+            "Chào bãn.",
+            "Chào bạn."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 22.692292,
+        "end": 23.882292,
+        "correctAnswer": "Chào các bạn.",
+        "translation": "你好，各位朋友。",
+        "options": [
+            "Chào cát bạn.",
+            "Trào các bạn.",
+            "Chào các bạc.",
+            "Chào các bạn."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 24.262292,
+        "end": 25.202292,
+        "correctAnswer": "Chào cậu.",
+        "translation": "你好，小伙子。",
+        "options": [
+            "Chào cầu.",
+            "Trào cậu.",
+            "Chào cẩu.",
+            "Chào cậu."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 25.682292,
+        "end": 26.592292,
+        "correctAnswer": "Chào em.",
+        "translation": "你好，小朋友/学弟学妹。",
+        "options": [
+            "Chào êm.",
+            "Trào em.",
+            "Chào ém.",
+            "Chào em."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 27.102292,
+        "end": 28.122292,
+        "correctAnswer": "Chào cháu.",
+        "translation": "你好，小孩子/晚辈。",
+        "options": [
+            "Chào chấu.",
+            "Trào cháu.",
+            "Chào chẩu.",
+            "Chào cháu."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 28.642292,
+        "end": 29.772292,
+        "correctAnswer": "Chào các cháu.",
+        "translation": "你们好，小朋友们/晚辈们。",
+        "options": [
+            "Trào các cháu.",
+            "Chào cát cháu.",
+            "Chào các chẩu.",
+            "Chào các cháu."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 30.332292,
+        "end": 32.322292,
+        "correctAnswer": "Chào cô. Em là An.",
+        "translation": "老师好。我是阿安。",
+        "options": [
+            "Chào cô. Em là Ân.",
+            "Chào cô. Em là Ăn.",
+            "Chào cô. Ơm là An.",
+            "Chào cô. Em là An."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 32.812292,
+        "end": 33.602292,
+        "correctAnswer": "là.",
+        "translation": "是。",
+        "options": [
+            "lá.",
+            "lạ.",
+            "la.",
+            "là."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 34.292292,
+        "end": 36.392292,
+        "correctAnswer": "Chào em. Cô là Mai.",
+        "translation": "你好。我是阿梅老师。",
+        "options": [
+            "Chào em. Cô lả Mai.",
+            "Chào em. Cô là Mây.",
+            "Chào êm. Cô là Mai.",
+            "Chào em. Cô là Mai."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 36.842292,
+        "end": 39.032292,
+        "correctAnswer": "Chào thầy. Em là Ba.",
+        "translation": "老师好。我是阿三。",
+        "options": [
+            "Chào thầy. Em là Bà.",
+            "Chào thầy. Em là Bá.",
+            "Chào thầy. Êm là Ba.",
+            "Chào thầy. Em là Ba."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 39.452292,
+        "end": 41.582292,
+        "correctAnswer": "Chào em. Tôi là Lê.",
+        "translation": "你好。我是阿丽。",
+        "options": [
+            "Chào em. Tôi là Lề.",
+            "Chào êm. Tôi là Lê.",
+            "Chào em. Tôi là Lể.",
+            "Chào em. Tôi là Lê."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 41.952292,
+        "end": 46.532292,
+        "correctAnswer": "Chào thầy. Chúng em là Mai, Lê, và Lan.",
+        "translation": "老师好。我们是阿梅、阿丽和阿兰。",
+        "options": [
+            "Chào thầy. Chúng em là Mây, Lê, và Lan.",
+            "Chào thầy. Chúng em là Mai, Lê, và Lăn.",
+            "Chào thay. Chúng em là Mai, Lê, và Lan.",
+            "Chào thầy. Chúng em là Mai, Lê, và Lan."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 47.152292,
+        "end": 47.872292,
+        "correctAnswer": "và.",
+        "translation": "和。",
+        "options": [
+            "vá.",
+            "va.",
+            "vã.",
+            "và."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 48.492292,
+        "end": 49.182292,
+        "correctAnswer": "chúng.",
+        "translation": "我们。",
+        "options": [
+            "trúng.",
+            "chũng.",
+            "chúng.",
+            "chuông."
+        ]
+    },
+    {
+        "audioFile": "audio.mp3",
+        "start": 50.042292,
+        "end": 53.532292,
+        "correctAnswer": "Chào anh. Chúng tôi là An và Hòa.",
+        "translation": "哥哥好。我们是阿安和阿和。",
+        "options": [
+            "Chào anh. Chúng tôi là Ân và Hòa.",
+            "Chào anh. Chúng tôi là Ăn và Hòa.",
+            "Chào anh. Chúng tôi lả Ăn và Hòa.",
+            "Chào anh. Chúng tôi là An và Hòa."
+        ]
+    }
+];
 
         let currentIndex = 0;
         let isFreeMode = true;
@@ -294,7 +692,7 @@
             indicator.style.background = '#ffffe0';
             if (isFreeMode && showAnswer) {
                 indicator.innerHTML = `
-                    <div style="font-size: 20px; font-weight: normal; color: #38761d;">${sentences[currentIndex].translation}</div>
+                    <div style="font-size: 18px; font-weight: bold; color: #85ae5f;">${sentences[currentIndex].translation}</div>
                 `;
             } else {
                 indicator.innerHTML = '';
@@ -362,12 +760,18 @@
                 if (btn.textContent === selectedAnswer) {
                     if (selectedAnswer === correctAnswer) {
                         indicator.style.background = '#B7D7AA';
+						indicator.innerHTML = `
+                    <div style="font-size: 18px; font-weight: bold; color: #000000;">${sentences[currentIndex].translation}</div>
+                `;
                         btn.classList.add('correct');
                         correctAudio.play().catch(error => {
                             console.error('Correct audio playback failed:', error);
                         });
                     } else {
                         indicator.style.background = '#CE6D5E';
+						indicator.innerHTML = `
+                    <div style="font-size: 18px; font-weight: bold; color: #000000;">${sentences[currentIndex].translation}</div>
+                `;
                         btn.classList.add('wrong');
                         wrongAudio.play().catch(error => {
                             console.error('Wrong audio playback failed:', error);
@@ -413,7 +817,7 @@
 
         function updateScore() {
             scoreDisplay.textContent = `${correctCount}/${sentences.length}`;
-            scoreDisplay.style.display = 'inline';
+            scoreDisplay.style.display = 'block'; // Hiển thị score trong Test Mode
         }
 
         function showResults() {
@@ -464,7 +868,7 @@
             showHideBtn.classList.add('disabled');
             showHideBtn.classList.remove('active-mode');
             showAnswer = false;
-            scoreDisplay.style.display = 'inline';
+            scoreDisplay.style.display = 'block';
             currentIndex = 0;
             correctCount = 0;
             correctSentences.clear();
