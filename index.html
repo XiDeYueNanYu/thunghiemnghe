@@ -10,7 +10,7 @@
             text-align: center; 
             margin: 0; 
             padding-bottom: 300px; /* Mặc định cho màn hình lớn */
-            background-color: #ffffff; /*f7fbf3  3f4040*/
+            background-color: #f7fbf3; /*f7fbf3  3f4040*/
         }
         #gameContainer {
             display: block;
@@ -21,9 +21,9 @@
             max-width: 700px;
             min-height: 100px; 
             margin: 0 auto; 
-            border: 10px solid #4990cc; /*4990cc 56a1d1*/
-            background: #f9f9f9; /*ecf2e4 fefefc*/
-            color: #4990cc; 
+            border: 2px solid #1f4263; /*041b31 1f4263*/
+            background: #072d52; /*ecf2e4 fefefc*/
+            color: #ffffff; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -35,9 +35,9 @@
             max-width: 700px;
             min-height: 25px; 
             margin: 0px auto; 
-            border: 3px solid #4990cc; 
-            background: #fefefc; 
-            color: #4990cc; 
+            border: 2px solid #1f4263; 
+            background: #072d52; 
+            color: #ffffff; 
             display: flex; 
             align-items: center; 
             justify-content: left; 
@@ -50,9 +50,9 @@
             max-width: 700px;
             min-height: 25px; 
             margin: 0px auto; 
-            border: 3px solid #4990cc; 
-            background: #fefefc; 
-            color: #4990cc; 
+            border: 2px solid #1f4263; 
+            background: #072d52; 
+            color: #ffffff; 
             display: flex; 
             align-items: center; 
             justify-content: left; 
@@ -67,10 +67,10 @@
             transform: translateX(-50%);
             width: 95%;
             max-width: 800px; /* Giới hạn chiều rộng tối đa */
-            background: #fefefc;
-			border: 10px solid #4990cc;			
+            background: #f7fbf3;
+			border: 3px solid #f7fbf3;			
             padding: 10px 0; 
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); 
+           /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); */
             z-index: 1000; 
         }
         #controls div {
@@ -83,8 +83,8 @@
             padding: 8px 8px; 
             margin: 0 5px; 
             cursor: pointer; 
-            border: 3px solid #5d757d; 
-            background: #0f1314; /*192332*/
+            border: 2px solid #062849; 
+            background: #041b31; /*192332*/
             color: #fffbef; 
             font-size: 28px; 
             border-radius: 5px; 
@@ -113,7 +113,7 @@
             pointer-events: none; 
         }
         .active-mode { 
-            border: 4px solid orange; 
+            border: 2px solid #fed16a; 
         }
         #indicator { 
             width: 95%;
@@ -121,7 +121,7 @@
             min-height: 50px; 
             margin: 10px auto; 
                         padding: 5px;
-            border: 5px solid orange; 
+            border: 3px solid #fed16a; 
             background: #ffffe0; 
             border-radius: 10px; 
             display: flex; 
@@ -139,9 +139,10 @@
             max-width: 700px;
             padding: 10px;
             margin: 5px 0;
-            border: 2px solid #b38728;
+            border: 2px solid #ffffff;
             background: #ffffff; /*E6EDD9*/
-            color: #000;
+            color: #000000;
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
             font-size: 30px;
             text-align: left;
             cursor: pointer;
@@ -284,678 +285,379 @@
 const sentences = [
     {
         "audioFile": "audio.mp3",
-        "start": 3.35,
-        "end": 6.23,
-        "correctAnswer": "Chúng tôi đi Trung Quốc bằng ô tô qua cửa khẩu Lạng Sơn.",
-        "translation": "我们坐汽车经过谅山口岸去中国。",
+        "start": 0.302292,
+        "end": 1.142292,
+        "correctAnswer": "Chào ông.",
+        "translation": "您好，先生。",
         "options": [
-            "Chúng tôi đi Trung Quốc bằng ô tô qua cửa khẩu Lạng Sơn.",
-            "Chúng tôi đi Trung Quốc bằng ô tô qua cửa khâu Lạng Sơn.",
-            "Chúng tôi đi Trung Quốc băng ô tô qua cửa khẩu Lạng Sơn.",
-            "Chúng tôi đi Trung Quốc bằng ô tô qua cứa khẩu Lạng Sơn."
+            "Trào ống.",
+            "Chào ông.",
+            "Trào ung.",
+            "Chào ung."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 8.45,
-        "end": 10.81,
-        "correctAnswer": "Chị mua rượu này ở đâu? Ở siêu thị hay chợ?",
-        "translation": "你在哪里买的这瓶酒？在超市还是在市场？",
+        "start": 1.652292,
+        "end": 2.592292,
+        "correctAnswer": "Chào bà.",
+        "translation": "您好，女士。",
         "options": [
-            "Chị mua rượu này ở đâu? Ở siêu thị hay chợ?",
-            "Chị mua rượu này ở đâu? Ở siêu thụ hay chợ?",
-            "Chị mua rượu này ở đâu? Ở tiêu thị hay chợ?",
-            "Chị múa rượu này ở đâu? Ở siêu thị hay chợ?"
+            "Chào bá.",
+            "Trào bã.",
+            "Trào bà.",
+            "Chào bà."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 13.24,
-        "end": 14.48,
-        "correctAnswer": "Bà đã khai hải quan chưa ạ?",
-        "translation": "您申报海关了吗？。",
+        "start": 3.072292,
+        "end": 3.812292,
+        "correctAnswer": "Chào.",
+        "translation": "你好。",
         "options": [
-            "Bà đã khai hải quan chưa ạ?",
-            "Bà đã khai hải khoan chưa ạ?",
-            "Bà đã khay hải quan chưa ạ?",
-            "Bà đã khai hải quang chưa ạ?"
+            "Cháo.",
+            "Chèo.",
+            "Trào.",
+            "Chào."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 17.13,
-        "end": 18.98,
-        "correctAnswer": "Xin lỗi. Ông cho xem hộ chiếu.",
-        "translation": "对不起，请出示护照。",
+        "start": 4.292292,
+        "end": 4.962292,
+        "correctAnswer": "ông.",
+        "translation": "先生。",
         "options": [
-            "Xin lỗi. Ông cho xem hộ chiếu.",
-            "Xin lỗi. Ông cho xem hộ chiểu.",
-            "Xin lỗi. Ông cho xem hồ chiếu.",
-            "Xin lỗi. Ông cho xem hộ chiếp."
+            "ông.",
+            "ổng.",
+            "ống.",
+            "ung."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 21.63,
-        "end": 23.61,
-        "correctAnswer": "Chị đặt vali lên đây để tôi kiểm tra.",
-        "translation": "请把行李放在这里让我检查。",
+        "start": 5.692292,
+        "end": 6.422292,
+        "correctAnswer": "bà.",
+        "translation": "女士。",
         "options": [
-            "Chị đặt vali lên đây để tôi kiểm tra.",
-            "Chị đặt vali lên đay để tôi kiểm tra.",
-            "Chị đặt va li lên đây để tôi kiểm cha.",
-            "Chị dặt vali lên đây để tôi kiểm tra."
+            "bá.",
+            "pà.",
+            "pả.",
+            "bà."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 26.16,
-        "end": 27.66,
-        "correctAnswer": "Bà có giấy tờ tùy thân không?",
-        "translation": "您有身份证明文件吗？",
+        "start": 7.012292,
+        "end": 7.902292,
+        "correctAnswer": "Chào anh.",
+        "translation": "你好，哥哥/先生。",
         "options": [
-            "Bà có giấy tờ tùy thân không?",
-            "Bà có giấy tờ tui thân không?",
-            "Bà có dấy tờ tùy thân không?",
-            "Bà có giấy tờ tùy thăm không?"
+            "Chào ảnh.",
+            "Chào anh.",
+            "Trào ăn.",
+            "Chào ăn."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 30.29,
-        "end": 32.79,
-        "correctAnswer": "Mời bà qua cửa này để chúng tôi kiểm tra hành lý.",
-        "translation": "请您从这边过来，我们要检查行李。",
+        "start": 8.442292,
+        "end": 9.402292,
+        "correctAnswer": "Chào các anh.",
+        "translation": "你好，各位哥哥/先生。",
         "options": [
-            "Mời bà qua cửa này để chúng tôi kiểm tra hành lý.",
-            "Mời bà qua cứa này để chúng tôi kiểm tra hành lý.",
-            "Mời bà qua cửa này để chúng tôi kiểm cha hàng lý.",
-            "Mời ba qua cửa này để chúng tôi kiểm tra hành lý."
+            "Chào cát anh.",
+            "Chào các ênh.",
+            "Trào các anh.",
+            "Chào các anh."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 35.386965,
-        "end": 38.126965,
-        "correctAnswer": "Xuống máy bay, họ phải chờ lâu để lấy hành lý.",
-        "translation": "下飞机后，他们等了很久才拿到行李。",
+        "start": 10.272292,
+        "end": 10.902292,
+        "correctAnswer": "các.",
+        "translation": "各位。",
         "options": [
-            "Xuống máy bay, họ phải chờ lâu để lấy hành lý.",
-            "Xuống máy bay, họ phai chờ lâu để lấy hành lý.",
-            "Xuống máy bay, họ phải chờ lâu để lấy hành lục.",
-            "Xuống máy bay, họ phải chờ lâu để lẩy hành lý."
+            "cát.",
+            "cạc.",
+            "cáp.",
+            "các."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 40.6,
-        "end": 44.75,
-        "correctAnswer": "Anh có quá nhiều CD trong vali. Đề nghị anh cho vào hành lý ký gửi.",
-        "translation": "你的行李里有太多光盘了，请托运一部分。",
+        "start": 11.622292,
+        "end": 12.512292,
+        "correctAnswer": "Chào chị.",
+        "translation": "你好，姐姐/女士。",
         "options": [
-            "Anh có quá nhiều CD trong vali. Đề nghị anh cho vào hành lý ký gửi.",
-            "Anh có quá nhiều CD trong vali. Đề nghị anh cho vào hành ly ký gửi.",
-            "Anh có quá nhiều CD trong vali. Đề nghị anh cho vào hàng lý ký gửi.",
-            "Anh có quá nhiều CD trong vali. Đề nghị anh cho vào hành lý kỳ gữi."
+            "Chào chỉ.",
+            "Trào trị.",
+            "Chào trị.",
+            "Chào chị."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 47.41,
-        "end": 51.01,
-        "correctAnswer": "Sau khi làm thủ tục hải quan, chúng tôi vào phòng chờ để đợi chuyến bay.",
-        "translation": "办理完海关手续后，我们进入候机厅等候航班。",
+        "start": 13.032292,
+        "end": 14.022292,
+        "correctAnswer": "Chào các chị.",
+        "translation": "你好，各位姐姐/女士。",
         "options": [
-            "Sau khi làm thủ tục hải quan, chúng tôi vào phòng chờ để đợi chuyến bay.",
-            "Sau khi làm thử tục hải quan, chúng tôi vào phòng chờ để đợi chuyến bay.",
-            "Sau khi làm thủ tục hải quan, chúng tôi vào phồng chờ để đợi chuyến bay.",
-            "Sau khi làm thủ tục hải quang, chúng tôi vào phòng chờ để đợi chuyến bay."
+            "Trào các chị.",
+            "Chào các chỉ.",
+            "Chào cát chị.",
+            "Chào các chị."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 53.52,
-        "end": 55.42,
-        "correctAnswer": "Tôi cần tiết kiệm tiền để mua xe máy.",
-        "translation": "我需要省钱来买摩托车。",
+        "start": 14.672292,
+        "end": 15.602292,
+        "correctAnswer": "Chào thầy.",
+        "translation": "你好，男老师。",
         "options": [
-            "Tôi cần tiết kiệm tiền để mua xe máy.",
-            "Tôi cần tiêt kiệm tiền để mua xe máy.",
-            "Tôi cằn tiết kiệm tiền để mua xe máy.",
-            "Tôi cần tiết kiệm tiền để mưa xe máy."
+            "Chào thay.",
+            "Trào thày.",
+            "Chào thày.",
+            "Chào thầy."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 58,
-        "end": 60.97,
-        "correctAnswer": "Tôi cần visa một năm để xin việc ở Việt Nam.",
-        "translation": "我需要一年的签证来在越南找工作。",
+        "start": 15.952292,
+        "end": 16.912292,
+        "correctAnswer": "Chào cô.",
+        "translation": "你好，女老师。",
         "options": [
-            "Tôi cần visa một năm để xin việc ở Việt Nam.",
-            "Tôi cần visa một nam để xin việc ở Việt Nam.",
-            "Tôi cần visa một năm để sinh việc ở Việt Nam.",
-            "Tôi cần visa một năm để xin việt ở Việt Nam."
+            "Chào co.",
+            "Trào cô.",
+            "Chào cổ.",
+            "Chào cô."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 63.53,
-        "end": 66.68,
-        "correctAnswer": "Tôi cần gia hạn visa nên đang hỏi thủ tục làm visa.",
-        "translation": "我需要延期签证，以便咨询办签证的手续。",
+        "start": 17.542292,
+        "end": 19.122292,
+        "correctAnswer": "Chào các thầy các cô.",
+        "translation": "各位老师好。",
         "options": [
-            "Tôi cần gia hạng visa nên đang hỏi thủ tục làm visa.",
-            "Tôi cần ra hạn visa nên đang hỏi thủ tục làm visa.",
-            "Tôi cần gia hạn visa nên đang hõi thủ tục làm visa.",
-            "Tôi cần gia hạn visa nên đang hỏi thủ tục làm visa."
+            "Chào các thầy các cổ.",
+            "Chào cát thầy các cô.",
+            "Trào các thầy các cô.",
+            "Chào các thầy các cô."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 69.2,
-        "end": 71.92,
-        "correctAnswer": "Tôi cần thuê nhà gần trường để đi học cho tiện.",
-        "translation": "我需要在学校附近租房子，这样上学方便。",
+        "start": 19.732292,
+        "end": 21.012292,
+        "correctAnswer": "Chào các thầy cô.",
+        "translation": "各位老师好（男/女）。",
         "options": [
-            "Tôi cần thuê nhà gần trường để đi học cho tiện.",
-            "Tôi cần thê nhà gần trường để đi học cho tiện.",
-            "Tôi cần thuê nhà gần trường để đi học cho tiễn.",
-            "Tôi cần thuê nhà gần trường để đi học cho tiện."
+            "Chào cát thầy cô.",
+            "Trào các thầy cô.",
+            "Chào các thầy cổ.",
+            "Chào các thầy cô."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 74.47,
-        "end": 78.3,
-        "correctAnswer": "Tôi cần liên lạc với Viện Phát triển Ngôn ngữ để sưu tầm tài liệu về Hà Nội.",
-        "translation": "我需要联系语言发展学院，以便收集关于河内的资料。",
+        "start": 21.492292,
+        "end": 22.372292,
+        "correctAnswer": "Chào bạn.",
+        "translation": "你好，朋友。",
         "options": [
-            "Tôi cần liên lạc với Viện Phát triển Ngôn ngữ để sưu tầm tài liệu về Hà Nội.",
-            "Tôi cần liên lạc với Viện Phát triển Ngôn ngữ để xưu tầm tài liệu về Hà Nội.",
-            "Tôi cần liên lạc với Viện Phát triển Ngôn ngữ để sưu tằm tài liệu về Hà Nội.",
-            "Tôi cần liên lạc với Viện Phát triễn Ngôn ngữ để sưu tầm tài liệu về Hà Nội."
+            "Trào bạn.",
+            "Chào bạc.",
+            "Chào bãn.",
+            "Chào bạn."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 80.75,
-        "end": 83.11,
-        "correctAnswer": "Tôi cần nghỉ ngơi để có sức khỏe tốt hơn.",
-        "translation": "我需要休息，以便身体更健康。",
+        "start": 22.692292,
+        "end": 23.882292,
+        "correctAnswer": "Chào các bạn.",
+        "translation": "你好，各位朋友。",
         "options": [
-            "Tôi cần nghỉ ngơi để có sức khỏe tốt hơn.",
-            "Tôi cần nghĩ ngơi để có sức khỏe tốt hơn.",
-            "Tôi cần nghỉ ngơi để có súc khỏe tốt hơn.",
-            "Tôi cần nghỉ ngơi để có sức khoẻ tốt hờn."
+            "Chào cát bạn.",
+            "Trào các bạn.",
+            "Chào các bạc.",
+            "Chào các bạn."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 85.78,
-        "end": 88.24,
-        "correctAnswer": "Tôi cần gọi điện cho bạn để hỏi bài tập.",
-        "translation": "我需要打电话给朋友问作业。",
+        "start": 24.262292,
+        "end": 25.202292,
+        "correctAnswer": "Chào cậu.",
+        "translation": "你好，小伙子。",
         "options": [
-            "Tôi cần gọi điện cho bạn để hỏi bài tập.",
-            "Tôi cần gọi điện cho bạn để hỏi bày tập.",
-            "Tôi cần gọi điên cho bạn để hỏi bài tập.",
-            "Tôi cần gọi điện cho bản để hỏi bài tập."
+            "Chào cầu.",
+            "Trào cậu.",
+            "Chào cẩu.",
+            "Chào cậu."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 90.67,
-        "end": 92.48,
-        "correctAnswer": "Tôi cần mang theo hộ chiếu để làm thủ tục.",
-        "translation": "我需要带护照去办理手续。",
+        "start": 25.682292,
+        "end": 26.592292,
+        "correctAnswer": "Chào em.",
+        "translation": "你好，小朋友/学弟学妹。",
         "options": [
-            "Tôi cần mang theo hộ chiếu để làm thủ tục.",
-            "Tôi cần mang theo hô chiếu để làm thủ tục.",
-            "Tôi cần mang theo hộ chiểu để làm thủ tục.",
-            "Tôi cần mang theo hộ chiếu để lam thủ tục."
+            "Chào êm.",
+            "Trào em.",
+            "Chào ém.",
+            "Chào em."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 94.71,
-        "end": 96.48,
-        "correctAnswer": "Tôi cần đến trường sớm để kịp giờ học.",
-        "translation": "我需要早点到学校，以便赶上上课时间。",
+        "start": 27.102292,
+        "end": 28.122292,
+        "correctAnswer": "Chào cháu.",
+        "translation": "你好，小孩子/晚辈。",
         "options": [
-            "Tôi cần đến trường sớm để kịp giờ học.",
-            "Tôi cần đến trường sớm để kịp giờ họt.",
-            "Tôi cần đến trương sớm để kịp giờ học.",
-            "Tôi cần đến trường sớm để kịb giờ học."
+            "Chào chấu.",
+            "Trào cháu.",
+            "Chào chẩu.",
+            "Chào cháu."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 98.67,
-        "end": 100.93,
-        "correctAnswer": "Nếu em cần vé máy bay, tôi sẽ mua giúp.",
-        "translation": "如果你需要机票，我会帮你买。",
+        "start": 28.642292,
+        "end": 29.772292,
+        "correctAnswer": "Chào các cháu.",
+        "translation": "你们好，小朋友们/晚辈们。",
         "options": [
-            "Nếu em cần vé máy bay, tôi sẽ mua giúp.",
-            "Nếu em cần vé máy bay, tôi sẽ muă giúp.",
-            "Nếu em càn vé máy bay, tôi sẽ mua giúp.",
-            "Nếu em cần vé máy bay, tôi sẽ mưa giúp."
+            "Trào các cháu.",
+            "Chào cát cháu.",
+            "Chào các chẩu.",
+            "Chào các cháu."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 103.27,
-        "end": 105.88,
-        "correctAnswer": "Nếu em cần địa chỉ của cô ấy, anh sẽ gửi cho em.",
-        "translation": "如果你需要她的地址，我会发给你。",
+        "start": 30.332292,
+        "end": 32.322292,
+        "correctAnswer": "Chào cô. Em là An.",
+        "translation": "老师好。我是阿安。",
         "options": [
-            "Nếu em cần địa chỉ của cô ấy, anh sẽ gửi cho em.",
-            "Nếu em cần địa chỉ của cô ấy, anh sẽ gửi cho en.",
-            "Nếu em cần địa chỉ của cô ẩy, anh sẽ gửi cho eng.",
-            "Nếu em cần địa chí của cô ấy, anh sẽ gửi cho em."
+            "Chào cô. Em là Ân.",
+            "Chào cô. Em là Ăn.",
+            "Chào cô. Ơm là An.",
+            "Chào cô. Em là An."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 108.16,
-        "end": 110.49,
-        "correctAnswer": "Nếu em cần đăng ký tạm trú, tôi sẽ đưa đi.",
-        "translation": "如果你需要暂住登记，我会带你去。",
+        "start": 32.812292,
+        "end": 33.602292,
+        "correctAnswer": "là.",
+        "translation": "是。",
         "options": [
-            "Nếu em cần đăng ký tạm trú, tôi sẽ đưa đi.",
-            "Nếu em cần đăng kí tạm trú, tôi sẽ đưa đi.",
-            "Nếu em cần đăng ký tạm trú, tôi sẽ đua đi.",
-            "Nếu em cần đăng ký tạm chu, tôi sẽ đưa đi."
+            "lá.",
+            "lạ.",
+            "la.",
+            "là."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 112.67,
-        "end": 114.96,
-        "correctAnswer": "Nếu em cần tiền, tôi sẽ cho vay.",
-        "translation": "如果你需要钱，我会借给你。",
+        "start": 34.292292,
+        "end": 36.392292,
+        "correctAnswer": "Chào em. Cô là Mai.",
+        "translation": "你好。我是阿梅老师。",
         "options": [
-            "Nếu em cần tiền, tôi sẽ cho vay.",
-            "Nếu em cần tiên, tôi sẽ cho vay.",
-            "Nếu em cần tiền, tôi sẽ cho vây.",
-            "Nếu em cần tiền, tôi sẻ cho vay."
+            "Chào em. Cô lả Mai.",
+            "Chào em. Cô là Mây.",
+            "Chào êm. Cô là Mai.",
+            "Chào em. Cô là Mai."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 117.21,
-        "end": 119.89,
-        "correctAnswer": "Nếu em cần liên hệ với Viện, tôi sẽ cho địa chỉ.",
-        "translation": "如果你需要联系学院，我会给你地址。",
+        "start": 36.842292,
+        "end": 39.032292,
+        "correctAnswer": "Chào thầy. Em là Ba.",
+        "translation": "老师好。我是阿三。",
         "options": [
-            "Nếu em cần liên hệ với Viện, tôi sẽ cho địa chỉ.",
-            "Nếu em cần liên hệ với Viện, tôi sẽ cho đia chỉ.",
-            "Nếu em cần liên hệ với Viện, tôi sẽ cho địa chi.",
-            "Nếu em cần liền hệ với Viện, tôi sẽ cho địa chỉ."
+            "Chào thầy. Em là Bà.",
+            "Chào thầy. Em là Bá.",
+            "Chào thầy. Êm là Ba.",
+            "Chào thầy. Em là Ba."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 122.07,
-        "end": 124.56,
-        "correctAnswer": "Nếu em cần thông tin về Viện, tôi sẽ cung cấp.",
-        "translation": "如果你需要学院的信息，我会提供。",
+        "start": 39.452292,
+        "end": 41.582292,
+        "correctAnswer": "Chào em. Tôi là Lê.",
+        "translation": "你好。我是阿丽。",
         "options": [
-            "Nếu em cần thông tin về Viện, tôi sẽ cung cấp.",
-            "Nếu em cần thông tinh về Viện, tôi sẽ cung cấp.",
-            "Nếu em cần thông tin về Viện, tôi sẽ cung cáp.",
-            "Nếu em cần thông tin về Viện, tôi sẽ cung cập."
+            "Chào em. Tôi là Lề.",
+            "Chào êm. Tôi là Lê.",
+            "Chào em. Tôi là Lể.",
+            "Chào em. Tôi là Lê."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 126.73,
-        "end": 129,
-        "correctAnswer": "Nếu em cần xe máy, tôi sẽ cho mượn.",
-        "translation": "如果你需要摩托车，我会借给你。",
+        "start": 41.952292,
+        "end": 46.532292,
+        "correctAnswer": "Chào thầy. Chúng em là Mai, Lê, và Lan.",
+        "translation": "老师好。我们是阿梅、阿丽和阿兰。",
         "options": [
-            "Nếu em cần xe máy, tôi sẽ cho mượn.",
-            "Nếu em cần xe máy, tôi sẽ cho muợn.",
-            "Nếu em cần xe máy, tôi sẽ cho mươn.",
-            "Nếu em cần xê máy, tôi sẽ cho mượn."
+            "Chào thầy. Chúng em là Mây, Lê, và Lan.",
+            "Chào thầy. Chúng em là Mai, Lê, và Lăn.",
+            "Chào thay. Chúng em là Mai, Lê, và Lan.",
+            "Chào thầy. Chúng em là Mai, Lê, và Lan."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 131.64,
-        "end": 133.43,
-        "correctAnswer": "Em cần làm gì để có visa đi Việt Nam?",
-        "translation": "我需要做什么才能获得越南签证？",
+        "start": 47.152292,
+        "end": 47.872292,
+        "correctAnswer": "và.",
+        "translation": "和。",
         "options": [
-            "Em cần làm gì để có visa đi Việt Nam?",
-            "Em cần lam gì để có visa đi Việt Nam?",
-            "Em cần làm gì để có visa đi Việt Nam.",
-            "Em cần làm gì để có viza đi Việt Nam?"
+            "vá.",
+            "va.",
+            "vã.",
+            "và."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 135.56,
-        "end": 137.08,
-        "correctAnswer": "Em cần đến đâu để nhận visa?",
-        "translation": "我需要去哪里领取签证？",
+        "start": 48.492292,
+        "end": 49.182292,
+        "correctAnswer": "chúng.",
+        "translation": "我们。",
         "options": [
-            "Em cần đến đâu để nhận visa?",
-            "Em cần đến đâu để nhận viza?",
-            "Em cần đền đâu để nhận visa?",
-            "Em cần đến đâu để nhạn visa?"
+            "trúng.",
+            "chũng.",
+            "chúng.",
+            "chuông."
         ]
     },
     {
         "audioFile": "audio.mp3",
-        "start": 139.35,
-        "end": 140.98,
-        "correctAnswer": "Em cần đến đâu để đăng ký tạm trú?",
-        "translation": "我需要去哪里办理临时居住登记？",
+        "start": 50.042292,
+        "end": 53.532292,
+        "correctAnswer": "Chào anh. Chúng tôi là An và Hòa.",
+        "translation": "哥哥好。我们是阿安和阿和。",
         "options": [
-            "Em cần đến đâu để đăng ký tạm trú?",
-            "Em cần đến đâu để đăng kỷ tạm trú?",
-            "Em cần đến đâu để đắng ký tạm trú?",
-            "Em cần đến đâu để đăng ký tạm trú."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 143.23,
-        "end": 144.61,
-        "correctAnswer": "Em cần làm gì để có thẻ thư viện?",
-        "translation": "我需要做什么才能办图书馆卡？",
-        "options": [
-            "Em cần làm gì để có thẻ thư viện?",
-            "Em cần làm gì để có thể thư viện?",
-            "Em cần lam gì để có thẻ thư viện?",
-            "Em cần làm gì để có thẻ thư viên?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 146.57,
-        "end": 148.31,
-        "correctAnswer": "Em cần mua giáo trình nào để học tiếng Việt?",
-        "translation": "我需要买哪本教材来学习越南语？",
-        "options": [
-            "Em cần mua giáo trình nào để học tiếng Việt?",
-            "Em cần mua giáo trình nào để học tiếng Việc?",
-            "Em cần mua giáo trình nào để học tiến Việt?",
-            "Em cần mua giáo trinh nào để học tiếng Việt?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 150.1,
-        "end": 151.82,
-        "correctAnswer": "Em cần gặp ai để làm thủ tục nhập học?",
-        "translation": "我需要找谁来办理入学手续？",
-        "options": [
-            "Em cần gặp ai để làm thủ tục nhập học?",
-            "Em cần gặp ai để làm thủ tục nhập học?",
-            "Em cần gặp ai để làm thủ thục nhập học?",
-            "Em cần gập ai để làm thủ tục nhập học?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 153.7,
-        "end": 155.38,
-        "correctAnswer": "Em cần đến ngân hàng nào để mở tài khoản?",
-        "translation": "我需要去哪个银行开账户？",
-        "options": [
-            "Em cần đến ngân hàng nào để mở tài khoản?",
-            "Em cần đến ngân hàng nào để mỡ tài khoản?",
-            "Em cần đến ngân hảng nào để mở tài khoản?",
-            "Em cần đến ngân hàng nào để mở tai khoản?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 157.55,
-        "end": 158.89,
-        "correctAnswer": "Em cần gặp ai để trả học phí?",
-        "translation": "我需要找谁交学费？",
-        "options": [
-            "Em cần gặp ai để trả học phí?",
-            "Em cần gặp ai để trả học phỉ?",
-            "Em cần gập ai để trả học phí?",
-            "Em cần gặp ai để chả học phí?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 160.66,
-        "end": 161.82,
-        "correctAnswer": "(Tôi đói quá rồi.). - Thế thì đi ăn ngay đi.",
-        "translation": "那就赶快去吃吧。",
-        "options": [
-            "(Tôi đói quá rồi.). - Thế thì đi ăn ngay đi.",
-            "(Tôi đói quá rồi.). - Thế thì đi ăn ngây đi.",
-            "(Tôi đói quá rồi.). - Thế thì đi ăng ngay đi.",
-            "(Tôi đói quá rồi.). - Thế thì đi ăn ngay di."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 163.61,
-        "end": 165.8,
-        "correctAnswer": "(Cái áo này vừa rộng vừa dài.). - Thế thì đừng mua, chọn cái khác.",
-        "translation": "那就别买了，换一件别的吧。",
-        "options": [
-            "(Cái áo này vừa rộng vừa dài.). - Thế thì đừng mua, chọn cái khác.",
-            "(Cái áo này vừa rộng vừa dài.). - Thế thì đừng mua, chon cái khác.",
-            "(Cái áo này vừa rộng vừa dài.). - Thế thì đừng muă, chọn cái khác.",
-            "(Cái áo này vừa rộng vừa dài.). - Thế thì đừng mua, chọn cai khác."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 167.64,
-        "end": 169.21,
-        "correctAnswer": "(Ngày mai chúng ta thi rồi.). - Thế thì tối nay phải ôn bài cẩn thận.",
-        "translation": "那今晚一定要认真复习。",
-        "options": [
-            "(Ngày mai chúng ta thi rồi.). - Thế thì tối nay phải ôn bài cẩn thận.",
-            "(Ngày mai chúng ta thi rồi.). - Thế thì tối nay phải ôn bải cẩn thận.",
-            "(Ngày mai chúng ta thi rồi.). - Thế thì tôi nay phải ôn bài cẩn thận.",
-            "(Ngày mai chúng ta thi rồi.). - Thế thì tối nay phải ôn bày cẩn thận."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 170.99,
-        "end": 172.4,
-        "correctAnswer": "(Tôi vừa đọc hết cuốn sách này. – Hay lắm.). - Thế thì cho tôi mượn đọc với.",
-        "translation": "那就借我看看吧。",
-        "options": [
-            "(Tôi vừa đọc hết cuốn sách này. – Hay lắm.). - Thế thì cho tôi mượn đọc với.",
-            "(Tôi vừa đọc hết cuốn sách này. – Hay lắm.). - Thế thì cho tôi mượn đoc với.",
-            "(Tôi vừa đọc hết cuốn sách này. – Hay lắm.). - Thế thì cho tôi mượn đọc vơi.",
-            "(Tôi vừa đọc hết cuốn sách này. – Hay lắm.). - Thế thì cho tôi mượn đọc vớ."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 174.19,
-        "end": 175.52,
-        "correctAnswer": "(Trong nhà tôi hết đồ ăn rồi.). - Thế thì đi chợ mua thêm đi.",
-        "translation": "那就去市场再买一些吧。",
-        "options": [
-            "(Trong nhà tôi hết đồ ăn rồi.). - Thế thì đi chợ mua thêm đi.",
-            "(Trong nhà tôi hết đồ ăn rồi.). - Thế thì đi chợ muă thêm đi.",
-            "(Trong nhà tôi hết đồ ăn rồi.). - Thế thì đi chợ mua thêm di.",
-            "(Trong nhà tôi hết đồ ăn rồi.). - Thế thì đi chơ mua thêm đi."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 177.29,
-        "end": 179.16,
-        "correctAnswer": "(Tôi rất thích học tiếng Việt.). - Thế thì đăng ký học thêm một khóa nữa đi.",
-        "translation": "那就再报名一个课程吧。",
-        "options": [
-            "(Tôi rất thích học tiếng Việt.). - Thế thì đăng ký học thêm một khóa nữa đi.",
-            "(Tôi rất thích học tiếng Việt.). - Thế thì đăng kí học thêm một khóa nữa đi.",
-            "(Tôi rất thích học tiếng Việt.). - Thế thì đăng ký học thêm một khóa nưa đi.",
-            "(Tôi rất thích học tiếng Việt.). - Thế thì đắng ký học thêm một khóa nữa đi."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 180.94,
-        "end": 182.85,
-        "correctAnswer": "(Tôi đã có visa rồi.). - Thế thì chuẩn bị hành lý để sang Việt Nam đi.",
-        "translation": "那就准备行李去越南吧。",
-        "options": [
-            "(Tôi đã có visa rồi.). - Thế thì chuẩn bị hành lý để sang Việt Nam đi.",
-            "(Tôi đã có visa rồi.). - Thế thì chuẩn bị hành lí để sang Việt Nam đi.",
-            "(Tôi đã có visa rồi.). - Thế thì chuẩn bị hành lý để sang Việt Nam di.",
-            "(Tôi đã có visa rồi.). - Thế thì chuản bị hành lý để sang Việt Nam đi."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 184.59,
-        "end": 186.25,
-        "correctAnswer": "(Tuần sau anh chị ấy cưới đấy.). - Thế thì nhớ mua quà và đi dự nhé.",
-        "translation": "那就记得买礼物，去参加吧。",
-        "options": [
-            "(Tuần sau anh chị ấy cưới đấy.). - Thế thì nhớ mua quà và đi dự nhé.",
-            "(Tuần sau anh chị ấy cưới đấy.). - Thế thì nhớ mua quà và đi dư nhé.",
-            "(Tuần sau anh chị ấy cưới đấy.). - Thế thì nhớ muă quà và đi dự nhé.",
-            "(Tuần sau anh chị ấy cưới đấy.). - Thế thì nhớ mua quà và đi dự nghé."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 187.94,
-        "end": 189.48,
-        "correctAnswer": "(Các hãng hàng không không đang khuyến mại vé tháng này đấy.). - Thế thì đợi sang tháng rồi mua.",
-        "translation": "那就等到下个月再买吧。",
-        "options": [
-            "(Các hãng hàng không không đang khuyến mại vé tháng này đấy.). - Thế thì đợi sang tháng rồi mua.",
-            "(Các hãng hàng không không đang khuyến mại vé tháng này đấy.). - Thế thì đợi sang thang rồi mua.",
-            "(Các hãng hàng không không đang khuyến mại vé tháng này đấy.). - Thế thì đợi sang tháng rùi mua.",
-            "(Các hãng hàng không không đang khuyến mại vé tháng này đấy.). - Thế thì đơi sang tháng rồi mua."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 191.13,
-        "end": 192.71,
-        "correctAnswer": "(Viện Phát triển Ngôn ngữ đang chuẩn bị mở lớp tiếng Việt mới đấy.). - Thế thì đăng ký tham gia ngay đi.",
-        "translation": "那就赶快报名参加吧。",
-        "options": [
-            "(Viện Phát triển Ngôn ngữ đang chuẩn bị mở lớp tiếng Việt mới đấy.). - Thế thì đăng ký tham gia ngay đi.",
-            "(Viện Phát triển Ngôn ngữ đang chuẩn bị mở lớp tiếng Việt mới đấy.). - Thế thì đăng ký tham gia ngay di.",
-            "(Viện Phát triển Ngôn ngữ đang chuẩn bị mở lớp tiếng Việt mới đấy.). - Thế thì đăng kì tham gia ngay đi.",
-            "(Viện Phát triển Ngôn ngữ đang chuẩn bị mở lớp tiếng Việt mới đấy.). - Thế thì đăng ký tham ja ngay đi."
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 194.59,
-        "end": 196.81,
-        "correctAnswer": "(Em có visa rồi.). - Thế còn nhà ở, em sẽ thuê ở đâu?",
-        "translation": "那住宿的地方，我要在哪里租呢？",
-        "options": [
-            "(Em có visa rồi.). - Thế còn nhà ở, em sẽ thuê ở đâu?",
-            "(Em có visa rồi.). - Thế còn nha ở, em sẽ thuê ở đâu?",
-            "(Em có visa rồi.). - Thế còn nhà ở, em sẽ thêu ở đâu?",
-            "(Em có visa rồi.). - Thế còn nhà ở, em sẽ thuê ở dâu?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 198.56,
-        "end": 201.19,
-        "correctAnswer": "(Em thuê nhà rồi.). - Thế còn nơi tạm trú, em sẽ đăng ký ở đâu?",
-        "translation": "那临时居住的地方，我要在哪里登记呢？",
-        "options": [
-            "(Em thuê nhà rồi.). - Thế còn nơi tạm trú, em sẽ đăng ký ở đâu?",
-            "(Em thuê nhà rồi.). - Thế còn nơi tạm trú, em sẽ đăng kí ở đâu?",
-            "(Em thuê nhà rồi.). - Thế còn nơi tạm trú, em sẽ đăng ký ở dâu?",
-            "(Em thuê nhà rồi.). - Thế còn nơi tạm trú, em sẽ đăng khi ở đâu?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 202.9,
-        "end": 205.45,
-        "correctAnswer": "(Em đăng ký tạm trú rồi.). - Thế còn tài khoản, em sẽ mở ở đâu?",
-        "translation": "那账户我要在哪里开？",
-        "options": [
-            "(Em đăng ký tạm trú rồi.). - Thế còn tài khoản, em sẽ mở ở đâu?",
-            "(Em đăng ký tạm trú rồi.). - Thế còn tài khoản, em sẽ mỡ ở đâu?",
-            "(Em đăng ký tạm trú rồi.). - Thế còn tài khoản, em sẽ mở ở dâu?",
-            "(Em đăng ký tạm trú rồi.). - Thế còn tai khoản, em sẽ mở ở đâu?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 206.99,
-        "end": 209.63,
-        "correctAnswer": "(Em có nhà rồi.). - Thế còn thủ tục xin học, em sẽ làm ở đâu?",
-        "translation": "那入学手续我要在哪里办理？",
-        "options": [
-            "(Em có nhà rồi.). - Thế còn thủ tục xin học, em sẽ làm ở đâu?",
-            "(Em có nhà rồi.). - Thế còn thủ tục xin học, em sẽ lam ở đâu?",
-            "(Em có nhà rồi.). - Thế còn thủ tục xinh học, em sẽ làm ở đâu?",
-            "(Em có nhà rồi.). - Thế còn thủ tuc xin học, em sẽ làm ở đâu?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 211.37,
-        "end": 213.41,
-        "correctAnswer": "(Em đăng ký học rồi.). - Thế còn học phí, em sẽ trả ở đâu?",
-        "translation": "那学费我要在哪里交？",
-        "options": [
-            "(Em đăng ký học rồi.). - Thế còn học phí, em sẽ trả ở đâu?",
-            "(Em đăng ký học rồi.). - Thế còn học phí, em sẽ chả ở đâu?",
-            "(Em đăng ký học rồi.). - Thế còn học phi, em sẽ trả ở đâu?",
-            "(Em đăng ký học rồi.). - Thế còn học phí, em sẽ trả ơ đâu?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 215.13,
-        "end": 217.29,
-        "correctAnswer": "(Em bắt đầu học rồi.). - Thế còn giáo trình, em sẽ mua ở đâu?",
-        "translation": "那教材我要在哪里买？",
-        "options": [
-            "(Em bắt đầu học rồi.). - Thế còn giáo trình, em sẽ mua ở đâu?",
-            "(Em bắt đầu học rồi.). - Thế còn giao trình, em sẽ mua ở đâu?",
-            "(Em bắt đầu học rồi.). - Thế còn giáo trình, em sẽ muă ở đâu?",
-            "(Em bắt đầu học rồi.). - Thế còn giáo trình, em sẽ mua ơ đâu?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 218.92,
-        "end": 221.44,
-        "correctAnswer": "(Em học xong rồi.). - Thế còn chứng chỉ, em sẽ lấy ở đâu?",
-        "translation": "那证书我要在哪里领取？",
-        "options": [
-            "(Em học xong rồi.). - Thế còn chứng chỉ, em sẽ lấy ở đâu?",
-            "(Em học xong rồi.). - Thế còn chứng chỉ, em sẽ lây ở đâu?",
-            "(Em học xong rồi.). - Thế còn chưng chỉ, em sẽ lấy ở đâu?",
-            "(Em học xong rồi.). - Thế còn chứng chỉ, em sẽ lấy ơ đâu?"
-        ]
-    },
-    {
-        "audioFile": "audio.mp3",
-        "start": 223.13,
-        "end": 225.55,
-        "correctAnswer": "(Em mua xe máy rồi.). - Thế còn bằng lái xe, em sẽ đổi ở đâu?",
-        "translation": "那驾照我要在哪里更换？",
-        "options": [
-            "(Em mua xe máy rồi.). - Thế còn bằng lái xe, em sẽ đổi ở đâu?",
-            "(Em mua xe máy rồi.). - Thế còn bằng láy xe, em sẽ đổi ở đâu?",
-            "(Em mua xe máy rồi.). - Thế còn bằng lái xe, em sẽ đỗi ở đâu?",
-            "(Em mua xe máy rồi.). - Thế còn bằng lái xe, em sẽ đổi ơ đâu?"
+            "Chào anh. Chúng tôi là Ân và Hòa.",
+            "Chào anh. Chúng tôi là Ăn và Hòa.",
+            "Chào anh. Chúng tôi lả Ăn và Hòa.",
+            "Chào anh. Chúng tôi là An và Hòa."
         ]
     }
 ];
